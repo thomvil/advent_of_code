@@ -18,3 +18,14 @@ For example:
 
 __How many blocks away__ is Easter Bunny HQ?
 
+Your puzzle answer was `181`.
+
+--- Part Two ---
+
+Then, you notice the instructions continue on the back of the Recruiting Document. Easter Bunny HQ is actually at the first location you visit twice.
+
+For example, if your instructions are `R8, R4, R4, R8`, the first location you visit twice is `4` blocks away, due East.
+
+How many blocks away is the __first location you visit twice__?
+
+Your puzzle answer was `140`.
