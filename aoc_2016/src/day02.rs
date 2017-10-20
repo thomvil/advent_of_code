@@ -152,7 +152,7 @@ mod tests {
     fn test_input_on_star() {
         let mut pad = KeyPad::star();
         pad.run(test_input());
-        assert_eq!("5D  B3", pad.code.as_str());
+        assert_eq!("5DB3", pad.code.as_str());
     }
 
     fn test_input() -> Vec<Vec<Direction>> {
