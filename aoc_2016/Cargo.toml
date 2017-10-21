@@ -10,6 +10,7 @@ permutohedron = "0.2.2"
 primal = "0.2"
 regex = "0.2"
 rust-crypto = "^0.2"
+time = "0.1"
 
 [[bin]]
 name = "day01"
