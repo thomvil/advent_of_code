@@ -6,22 +6,9 @@ use crypto::md5::Md5;
 const INPUT: &str = include_str!("../inputs/day05.txt");
 
 fn main() {
-    // let mut dh = DoorHacker::new(INPUT.trim());
-    // println!("Door code is: {:?}", dh.door_code());
-    // println!("Door code is: {:?}", dh.door_code_v2());
-
-    let mut dh = DoorHacker::new("abc");
-    let code = dh.door_code();
-    // println!("Door code is: {:?}", dh.door_code_v2());
-    // let mut pair = dh.code_digit_for_index_v2(3231929);
-    // println!("{:?}", pair);
-    //
-    // let mut res = vec![None; 8];
-    // pair.map(|(i, c)| res[i] = res[i].or(Some(c)));
-    // println!("{:?}", res);
-    // pair = Some((1, 'a'));
-    // pair.map(|(i, c)| res[i] = res[i].or(Some(c)));
-    // println!("{:?}", res);
+    let mut dh = DoorHacker::new(INPUT.trim());
+    println!("Door code is:          {:?}", dh.door_code());
+    println!("Improved door code is: {:?}", dh.door_code_v2());
 }
 
 pub struct DoorHacker<'a> { door_id: &'a str, hasher: Md5 }
@@ -68,6 +55,7 @@ impl<'a> DoorHacker<'a> {
         let mut idx = 1;
         while res.iter().any(|digits| digits.is_none()) {
             self.code_digit_for_index_v2(idx).map(|(i, c)| res[i] = res[i].or(Some(c)));
+            idx += 1;
         }
         res.iter().map(|opt| opt.unwrap()).collect()
     }
@@ -91,5 +79,11 @@ mod tests {
     fn test_doorcode() {
         let mut dh = DoorHacker::new("abc");
         assert_eq!("18f47a30", dh.door_code());
+    }
+
+    // #[test]
+    fn test_doorcode_v2() {
+        let mut dh = DoorHacker::new("abc");
+        assert_eq!("05ace8e3", dh.door_code_v2());
     }
 }
