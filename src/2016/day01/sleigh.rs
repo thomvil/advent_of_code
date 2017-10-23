@@ -27,7 +27,7 @@ impl Sleigh {
             self.location.increment();
             let coord = self.location.coordinate;
             if !self.location_log.insert(coord) {
-                self.first_recurrence = self.first_recurrence.or(Some(coord));
+                self.first_recurrence = self.first_recurrence.or_else(|| Some(coord));
             }
         }
     }

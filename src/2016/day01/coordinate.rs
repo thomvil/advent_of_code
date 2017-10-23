@@ -9,7 +9,7 @@ impl Coordinate {
     }
 
     pub fn origin() -> Coordinate {
-        Coordinate { x: 0, y: 0 }
+        Coordinate::new(0, 0)
     }
 
     pub fn offset_x(&mut self, offset: i32) {

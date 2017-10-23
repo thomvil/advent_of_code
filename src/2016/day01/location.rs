@@ -19,14 +19,10 @@ impl Location {
 
     pub fn turn(&mut self, turn: Turn) {
         match (turn, &self.direction) {
-            (Left, &North) => self.direction = West,
-            (Left, &East) => self.direction = North,
-            (Left, &South) => self.direction = East,
-            (Left, &West) => self.direction = South,
-            (Right, &North) => self.direction = East,
-            (Right, &East) => self.direction = South,
-            (Right, &South) => self.direction = West,
-            (Right, &West) => self.direction = North,
+            (Left, &South) | (Right, &North) => self.direction = East,
+            (Left, &West) | (Right, &East) => self.direction = South,
+            (Left, &North) | (Right, &South) => self.direction = West,
+            (Left, &East) | (Right, &West) => self.direction = North,
         }
     }
 
