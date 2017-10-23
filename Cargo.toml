@@ -12,10 +12,6 @@ regex = "0.2"
 rust-crypto = "^0.2"
 time = "0.1"
 
-[lib]
-name = "aoc_2016_01"
-path = "src/2016/day01/lib.rs"
-
 [[bin]]
 name = "aoc_2016"
-path = "src/aoc_2016.rs"
+path = "src/aoc_2016_bin.rs"
