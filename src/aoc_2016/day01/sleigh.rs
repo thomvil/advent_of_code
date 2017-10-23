@@ -1,6 +1,6 @@
-use coordinate::Coordinate;
-use Instruction;
-use location::Location;
+use aoc_2016::day01::coordinate::Coordinate;
+use aoc_2016::day01::Instruction;
+use aoc_2016::day01::location::Location;
 use std::collections::HashSet;
 
 #[derive(Debug)]
@@ -21,7 +21,8 @@ impl Sleigh {
         }
     }
 
-    fn execute_and_log(&mut self, (turn, offset): Instruction) {
+    fn execute_and_log(&mut self, instr: &Instruction) {
+        let (ref turn, offset) = *instr;
         self.location.turn(turn);
         for _i in 0..offset {
             self.location.increment();
@@ -32,8 +33,8 @@ impl Sleigh {
         }
     }
 
-    pub fn run(&mut self, list: Vec<Instruction>) {
-        list.into_iter().for_each(
+    pub fn run(&mut self, list: &Vec<Instruction>) {
+        list.iter().for_each(
             |instr| self.execute_and_log(instr),
         )
     }

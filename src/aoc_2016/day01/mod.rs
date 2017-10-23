@@ -1,13 +1,9 @@
-#[macro_use]
-extern crate lazy_static;
-extern crate regex;
-
 mod input_parser;
 mod coordinate;
 mod location;
 mod sleigh;
 
-use sleigh::Sleigh;
+use aoc_2016::day01::sleigh::Sleigh;
 
 type Instruction = (Turn, i32);
 
@@ -28,7 +24,7 @@ pub enum Turn {
 pub fn report(instructions: &str) {
     println!(" -- 2016: Day 1 -- ");
     let mut sleigh = Sleigh::new();
-    sleigh.run(input_parser::parse_instructions(instructions));
+    sleigh.run(&input_parser::parse_instructions(instructions));
     println!(
         "|  The sleigh ends {:?} blocks from the starting point.",
         sleigh.distance_to_origin()

@@ -2,9 +2,9 @@ lazy_static! {
     static ref INSTR_RE: Regex = Regex::new(r"(L|R)(\d+)").unwrap();
 }
 
-use Instruction;
+use aoc_2016::day01::Instruction;
+use aoc_2016::day01::Turn;
 use regex::Regex;
-use Turn;
 
 pub fn parse_instructions(instructions: &str) -> Vec<Instruction> {
     instructions
