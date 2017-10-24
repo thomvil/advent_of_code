@@ -6,23 +6,24 @@ use aoc_2016::day04::input_parser::*;
 use aoc_2016::day04::room::Room;
 
 pub fn report(instr: &str) {
+    let list = parse_instructions(instr);
     println!(" -- 2016: Day 4 -- ");
     println!(
         "| The sum of sector ids for the valid rooms is {:?}",
-        sum_of_sector_ids(parse_instructions(instr))
+        sum_of_sector_ids(&list)
     );
     println!(
         "| The same sum, by calculating checksums, is   {:?}",
-        sum_of_sector_ids2(parse_instructions(instr))
+        sum_of_sector_ids2(&list)
     );
-    match north_pole_object_storage(parse_instructions(instr)) {
+    match north_pole_object_storage(&list) {
         Some(sid) => println!("| North pole object storage is found at sector {}", sid),
         None => println!("| North pole object storage could not be found!"),
     }
     println!(" ------------------");
 }
 
-fn north_pole_object_storage(rooms: Vec<Room>) -> Option<u32> {
+fn north_pole_object_storage(rooms: &[Room]) -> Option<u32> {
     for room in rooms.iter().filter(|room| room.is_valid()) {
         if room.decrypt() == "northpole object storage" {
             return Some(room.sector_id);
@@ -31,14 +32,14 @@ fn north_pole_object_storage(rooms: Vec<Room>) -> Option<u32> {
     None
 }
 
-fn sum_of_sector_ids(rooms: Vec<Room>) -> u32 {
+fn sum_of_sector_ids(rooms: &[Room]) -> u32 {
     rooms
         .iter()
         .filter(|room| room.is_valid())
         .fold(0, |acc, room| acc + room.sector_id)
 }
 
-fn sum_of_sector_ids2(rooms: Vec<Room>) -> u32 {
+fn sum_of_sector_ids2(rooms: &[Room]) -> u32 {
     rooms
         .iter()
         .filter(|room| room.is_valid_by_checksum())

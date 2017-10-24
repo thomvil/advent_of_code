@@ -38,5 +38,5 @@ pub fn main() {
     aoc_2016::day02::report(INPUT_2016_02);
     aoc_2016::day03::report(INPUT_2016_03);
     aoc_2016::day04::report(INPUT_2016_04);
-    aoc_2016::day05::report(INPUT_2016_05);
+    // aoc_2016::day05::report(INPUT_2016_05);
 }

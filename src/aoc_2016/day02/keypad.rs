@@ -51,8 +51,8 @@ impl KeyPad {
     }
 
     fn save_key(&mut self) {
-        let key = *self.buttons.get(&self.cursor).unwrap();
-        self.code.push(key);
+        let key = &self.buttons[&self.cursor];
+        self.code.push(*key);
     }
 
     fn move_cursor(&mut self, dir: Direction) {
@@ -62,14 +62,14 @@ impl KeyPad {
         }
     }
 
-    pub fn execute(&mut self, list: &Vec<Direction>) {
+    pub fn execute(&mut self, list: &[Direction]) {
         for dir in list {
             self.move_cursor(*dir)
         }
         self.save_key();
     }
 
-    pub fn run(&mut self, instructions: &Vec<Vec<Direction>>) {
+    pub fn run(&mut self, instructions: &[Vec<Direction>]) {
         for list in instructions {
             self.execute(list);
         }

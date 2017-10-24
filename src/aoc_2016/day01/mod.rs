@@ -26,15 +26,15 @@ pub fn report(instructions: &str) {
     let mut sleigh = Sleigh::new();
     sleigh.run(&input_parser::parse_instructions(instructions));
     println!(
-        "|  The sleigh ends {:?} blocks from the starting point.",
+        "| The sleigh ends {:?} blocks from the starting point.",
         sleigh.distance_to_origin()
     );
     match sleigh.bunny_hq() {
         Some(c) => println!(
-            "|  Bunny HQ is {:?} blocks from the starting point.",
+            "| Bunny HQ is {:?} blocks from the starting point.",
             c.norm1()
         ),
-        None => println!("|  Bunny HQ is not found :("),
+        None => println!("| Bunny HQ is not found :("),
     }
     println!(" ------------------");
 }

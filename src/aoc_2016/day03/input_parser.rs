@@ -10,7 +10,7 @@ pub fn parse_instructions_vertically(instruction_str: &str) -> Vec<Vec<u32>> {
     for col in 0..3 {
         for row in 0..rows / 3 {
             res.push(vec![
-                hor[0 + 3 * row][col],
+                hor[3 * row][col],
                 hor[1 + 3 * row][col],
                 hor[2 + 3 * row][col],
             ]);

@@ -33,7 +33,7 @@ impl Sleigh {
         }
     }
 
-    pub fn run(&mut self, list: &Vec<Instruction>) {
+    pub fn run(&mut self, list: &[Instruction]) {
         list.iter().for_each(|instr| self.execute_and_log(instr))
     }
 
