@@ -30,12 +30,10 @@ pub fn report(instructions: &str) {
         sleigh.distance_to_origin()
     );
     match sleigh.bunny_hq() {
-        Some(c) => {
-            println!(
-                "|  Bunny HQ is {:?} blocks from the starting point.",
-                c.norm1()
-            )
-        }
+        Some(c) => println!(
+            "|  Bunny HQ is {:?} blocks from the starting point.",
+            c.norm1()
+        ),
         None => println!("|  Bunny HQ is not found :("),
     }
     println!(" ------------------");

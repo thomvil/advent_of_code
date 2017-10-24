@@ -34,9 +34,7 @@ impl Sleigh {
     }
 
     pub fn run(&mut self, list: &Vec<Instruction>) {
-        list.iter().for_each(
-            |instr| self.execute_and_log(instr),
-        )
+        list.iter().for_each(|instr| self.execute_and_log(instr))
     }
 
     pub fn distance_to_origin(&self) -> u32 {

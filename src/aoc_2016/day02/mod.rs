@@ -7,7 +7,12 @@ use aoc_2016::day02::keypad::KeyPad;
 
 
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq)]
-pub enum Direction { Up, Left, Down, Right }
+pub enum Direction {
+    Up,
+    Left,
+    Down,
+    Right,
+}
 
 pub fn report(instructions: &str) {
     let instr = input_parser::parse_instructions(instructions);
@@ -16,8 +21,14 @@ pub fn report(instructions: &str) {
     cube_pad.run(&instr);
     let mut star_pad = KeyPad::star();
     star_pad.run(&instr);
-    println!("| The bathroom code for the cube keypad is: {}", cube_pad.code.as_str());
-    println!("| The bathroom code for the star keypad is: {}", star_pad.code.as_str());
+    println!(
+        "| The bathroom code for the cube keypad is: {}",
+        cube_pad.code.as_str()
+    );
+    println!(
+        "| The bathroom code for the star keypad is: {}",
+        star_pad.code.as_str()
+    );
     println!(" ------------------");
 }
 
