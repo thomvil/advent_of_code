@@ -6,7 +6,7 @@ mod aoc_2016;
 
 const INPUT_2016_01: &'static str = include_str!("../inputs/2016_01.txt");
 const INPUT_2016_02: &'static str = include_str!("../inputs/2016_02.txt");
-// const INPUT_2016_03: &'static str = include_str!("../inputs/2016_03.txt");
+const INPUT_2016_03: &'static str = include_str!("../inputs/2016_03.txt");
 // const INPUT_2016_04: &'static str = include_str!("../inputs/2016_04.txt");
 // const INPUT_2016_05: &'static str = include_str!("../inputs/2016_05.txt");
 // const INPUT_2016_06: &'static str = include_str!("../inputs/2016_06.txt");
@@ -34,4 +34,5 @@ const INPUT_2016_02: &'static str = include_str!("../inputs/2016_02.txt");
 pub fn main() {
     aoc_2016::day01::report(INPUT_2016_01);
     aoc_2016::day02::report(INPUT_2016_02);
+    aoc_2016::day03::report(INPUT_2016_03);
 }
