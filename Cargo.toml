@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Thomas Villa <thomvil87@gmail.com>"]
 
 [dependencies]
+colored = "1.5"
 itertools = "0.7.1"
 lazy_static = "0.2"
 permutohedron = "0.2.2"
