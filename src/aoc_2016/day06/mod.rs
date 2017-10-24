@@ -6,8 +6,14 @@ pub fn report(instr: &str) {
     println!(" -- 2016: Day 6 -- ");
     let mut rc = RepetitionCoder::new();
     rc.parse(instr);
-    println!("{:?}", rc.recover_msg_v1());
-    println!("{:?}", rc.recover_msg_v2());
+    println!(
+        "| Recoverd message: {:?} (most common filter)",
+        rc.recover_msg_v1()
+    );
+    println!(
+        "| Recoverd message: {:?} (least common filter)",
+        rc.recover_msg_v2()
+    );
     println!(" ------------------");
 }
 
