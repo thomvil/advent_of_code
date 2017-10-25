@@ -47,4 +47,20 @@ pub fn main() {
     aoc_2016::day07::report(INPUT_2016_07);
     aoc_2016::day08::report(INPUT_2016_08);
     aoc_2016::day09::report(INPUT_2016_09);
+    aoc_2016::day10::report(INPUT_2016_10);
+    aoc_2016::day11::report(INPUT_2016_11);
+    aoc_2016::day12::report(INPUT_2016_12);
+    aoc_2016::day13::report(INPUT_2016_13);
+    aoc_2016::day14::report(INPUT_2016_14);
+    aoc_2016::day15::report(INPUT_2016_15);
+    aoc_2016::day16::report(INPUT_2016_16);
+    aoc_2016::day17::report(INPUT_2016_17);
+    aoc_2016::day18::report(INPUT_2016_18);
+    aoc_2016::day19::report(INPUT_2016_19);
+    aoc_2016::day20::report(INPUT_2016_20);
+    aoc_2016::day21::report(INPUT_2016_21);
+    aoc_2016::day22::report(INPUT_2016_22);
+    aoc_2016::day23::report(INPUT_2016_23);
+    aoc_2016::day24::report(INPUT_2016_24);
+    aoc_2016::day25::report(INPUT_2016_25);
 }
