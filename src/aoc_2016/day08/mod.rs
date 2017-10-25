@@ -1,7 +1,6 @@
 mod magnetic_strip;
 mod input_parser;
 
-use aoc_2016::day08::Instruction::*;
 use aoc_2016::day08::input_parser::*;
 use aoc_2016::day08::magnetic_strip::MagneticStrip;
 

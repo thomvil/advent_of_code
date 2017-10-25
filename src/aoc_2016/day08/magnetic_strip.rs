@@ -17,14 +17,14 @@ impl MagneticStrip {
     }
 
     pub fn execute(&mut self, instr: &Instruction) {
-        match instr {
-            &Rect(r, c) => self.rect(r, c),
-            &RotateRow(r, s) => self.rotate_row(r, s),
-            &RotateColumn(c, s) => self.rotate_column(c, s),
+        match *instr {
+            Rect(r, c) => self.rect(r, c),
+            RotateRow(r, s) => self.rotate_row(r, s),
+            RotateColumn(c, s) => self.rotate_column(c, s),
         }
     }
 
-    pub fn run(&mut self, instructions: &Vec<Instruction>) {
+    pub fn run(&mut self, instructions: &[Instruction]) {
         instructions.iter().for_each(|instr| self.execute(instr));
     }
 
@@ -70,7 +70,9 @@ impl MagneticStrip {
     }
 
     pub fn brightness(&self) -> usize {
-        self.grid.iter().fold(0, |b, row| b + row.iter().filter(|el| **el).count() )
+        self.grid
+            .iter()
+            .fold(0, |b, row| b + row.iter().filter(|el| **el).count())
     }
 
     fn symbol(el: &bool) -> char {
