@@ -11,10 +11,16 @@ fn main() {
     println!("Improved door code is: {:?}", dh.door_code_v2());
 }
 
-pub struct DoorHacker<'a> { door_id: &'a str, hasher: Md5 }
+pub struct DoorHacker<'a> {
+    door_id: &'a str,
+    hasher: Md5,
+}
 impl<'a> DoorHacker<'a> {
     fn new(id: &'a str) -> DoorHacker<'a> {
-        DoorHacker { door_id: id, hasher: Md5::new() }
+        DoorHacker {
+            door_id: id,
+            hasher: Md5::new(),
+        }
     }
 
     fn hash(&mut self, idx: u32) -> String {
@@ -29,7 +35,7 @@ impl<'a> DoorHacker<'a> {
         let hash_output = self.hash(idx);
         match &hash_output[0..5] {
             "00000" => Some(hash_output.chars().nth(5).unwrap()),
-            _       => None
+            _ => None,
         }
     }
 
@@ -38,15 +44,16 @@ impl<'a> DoorHacker<'a> {
         match &hash_output[0..5] {
             "00000" => {
                 let location_char = hash_output.chars().nth(5).unwrap();
-                let location_digit: usize = location_char.to_string().parse().ok().or(Some(8)).unwrap();
+                let location_digit: usize =
+                    location_char.to_string().parse().ok().or(Some(8)).unwrap();
                 if location_digit < 8 {
                     let code_char = hash_output.chars().nth(6).unwrap();
                     Some((location_digit, code_char))
                 } else {
                     None
                 }
-            },
-            _       => None
+            }
+            _ => None,
         }
     }
 
@@ -54,7 +61,9 @@ impl<'a> DoorHacker<'a> {
         let mut res = vec![None; 8];
         let mut idx = 1;
         while res.iter().any(|digits| digits.is_none()) {
-            self.code_digit_for_index_v2(idx).map(|(i, c)| res[i] = res[i].or(Some(c)));
+            self.code_digit_for_index_v2(idx).map(|(i, c)| {
+                res[i] = res[i].or(Some(c))
+            });
             idx += 1;
         }
         res.iter().map(|opt| opt.unwrap()).collect()

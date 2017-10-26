@@ -1,8 +1,6 @@
 const INPUT: &str = include_str!("../inputs/day20.txt");
 
-fn main() {
-
-}
+fn main() {}
 
 #[cfg(test)]
 mod tests {
